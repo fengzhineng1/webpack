@@ -9,11 +9,10 @@ const dirname = path.resolve(__dirname)
 const config = {
   entry: {
     pageOne: ['react-hot-loader/patch', './index.js'],
-    pagetwo: './app.js',
     vender: ['react', 'react-router-dom', 'react-dom']
   },
   output: {
-    filename: '[name].[chunkhash].js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
     chunkFilename: '[name].[chunkhash].js',
     publicPath: '/'
@@ -46,6 +45,7 @@ const config = {
       },
       {
         test: /\.jsx?$/,
+        exclude: /node_modules/,
         use: 'babel-loader?cacheDirectory=true'
       }
     ]
@@ -65,7 +65,17 @@ const config = {
         'NODE_ENV': JSON.stringify('production')
       }
     })
-  ]
+  ],
+  devServer: {
+    contentBase: path.join(__dirname, './dist'),
+    port: 7005,
+    historyApiFallback: true, // respond to 404s with index.html
+    hot: true,
+    inline: true,
+    proxy: {
+      "/blog": "http://localhost:8888"
+    }
+  }
 }
 
 module.exports = config

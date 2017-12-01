@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack.config.dev.js --color --progress",
+    "start": "webpack-dev-server --config webpack.config.dev.js --hot --inline --color --progress",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.dev.js --color --progress"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "antd": "^2.13.10",
+    "babel-plugin-import": "^1.6.2",
     "html-webpack-plugin": "^2.30.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

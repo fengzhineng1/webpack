@@ -15,11 +15,14 @@ const renderWithHotLoader = (getRouters) => {
       {getRouters()}
     </AppContainer>, app)
 }
+
 renderWithHotLoader(getRouter)
+
 if (module.hot) {
   module.hot.accept('./router/router.js', () => {
     const getRouter = require('./router/router').default
     renderWithHotLoader(getRouter())
   })
 }
+
 ReactDOM.render(getRouter(), app)

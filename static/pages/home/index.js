@@ -1,9 +1,12 @@
 import React from 'react'
+import { Table } from 'antd'
 
 import './index.less'
 
 const Page = () => (
-  <div className='b'>i 1233345678am pages</div>
+  <div style={{ fontSize: '3rem' }}>
+    789
+  </div>
 )
 
 export default Page
